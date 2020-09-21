@@ -1,0 +1,9 @@
+name: "push directory"
+description: Push directory to a remote repository/branch
+author: Ionut Radu
+branding:
+  icon: 'terminal'
+  color: 'gray-dark'
+runs:
+  using:  "docker"
+  image: Dockerfile
