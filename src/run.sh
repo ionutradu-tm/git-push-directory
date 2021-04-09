@@ -107,7 +107,9 @@ git config user.email ${USER_EMAIL}
 git config user.name ${USER_NAME}
 #copy directory
 cd ..
+pwd
 ls -ld *
+ls -ld tracker-repository/*
 cp -rfa ${SOURCE_DIR} ${REPO_NAME}
 cd ${REPO_NAME}
 git_push
