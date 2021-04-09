@@ -76,13 +76,14 @@ USER_NAME=${USER_NAME:-"githubactions-bot"}
 if [[ ${SCM} == "gitlab" ]];then
   GIT_URL="https://gitlab-ci-token:${GIT_TOKEN}@gitlab.tremend.com/${REPO_USER}/${REPO_NAME}.git"
   USER_EMAIL=${USER_EMAIL:-"email@gitlab.com"}
-  USER_NAME=${USER_NAME:-"gitlabci-bot"}
+  if [[ ${USER_NAME} == "githubactions-bot" ]];then
+    USER_NAME=${USER_NAME:-"gitlabci-bot"}
+  fi
 fi
 
 MESSAGE=${MESSAGE:-"[ci skip] deploy from ${AUTHOR}"}
 
 clone_repo
-
 
 cd ${REPO_NAME}
 
