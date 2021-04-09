@@ -82,7 +82,7 @@ fi
 MESSAGE=${MESSAGE:-"[ci skip] deploy from ${AUTHOR}"}
 
 cd /tmp
-ls -ldR *
+ls -lR *
 clone_repo
 
 
@@ -109,7 +109,7 @@ git config user.name ${USER_NAME}
 cd ..
 pwd
 ls -ld *
-ls -ldR tracker-repository/*
+ls -lR tracker-repository/*
 cp -rfa ${SOURCE_DIR} ${REPO_NAME}
 cd ${REPO_NAME}
 git_push
