@@ -109,7 +109,7 @@ git config user.name ${USER_NAME}
 cd ..
 pwd
 ls -ld *
-ls -ld tracker-repository/*
+ls -ldR tracker-repository/*
 cp -rfa ${SOURCE_DIR} ${REPO_NAME}
 cd ${REPO_NAME}
 git_push
