@@ -82,7 +82,7 @@ fi
 MESSAGE=${MESSAGE:-"[ci skip] deploy from ${AUTHOR}"}
 
 cd /tmp
-ls -ld *
+ls -ldR *
 clone_repo
 
 
