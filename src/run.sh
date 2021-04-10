@@ -75,9 +75,11 @@ USER_EMAIL=${USER_EMAIL:-"email@github.com"}
 USER_NAME=${USER_NAME:-"githubactions-bot"}
 if [[ ${SCM} == "gitlab" ]];then
   GIT_URL="https://gitlab-ci-token:${GIT_TOKEN}@gitlab.tremend.com/${REPO_USER}/${REPO_NAME}.git"
-  USER_EMAIL=${USER_EMAIL:-"email@gitlab.com"}
   if [[ ${USER_NAME} == "githubactions-bot" ]];then
     USER_NAME=${USER_NAME:-"gitlabci-bot"}
+  fi
+    if [[ ${USER_EMAIL} == "email@github.com" ]];then
+    USER_NAME=${USER_NAME:-"email@gitlab.com"}
   fi
 fi
 
@@ -111,5 +113,8 @@ cp -rfa ${SOURCE_DIR} ${REPO_NAME}
 cd ${REPO_NAME}
 git_push
 #clean up
-cd ..
-rm -rf ${REPO_NAME}
+REMOVE_REPO=${REMOVE_REPO:-yes}
+if [[ ${REMOVE_REPO} == "yes" ]];then
+  cd ..
+  rm -rf ${REPO_NAME}
+fi
