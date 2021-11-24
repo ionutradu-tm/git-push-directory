@@ -70,11 +70,12 @@ fi
 #end functions
 
 BASE_DIR=$(pwd)
+REPO_HOSTNAME=${REPO_HOSTNAME:-"gitlab.tremend.com"}
 GIT_URL="https://${GIT_TOKEN}@github.com/${REPO_USER}/${REPO_NAME}.git"
 USER_EMAIL=${USER_EMAIL:-"email@github.com"}
 USER_NAME=${USER_NAME:-"githubactions-bot"}
 if [[ ${SCM} == "gitlab" ]];then
-  GIT_URL="https://gitlab-ci-token:${GIT_TOKEN}@gitlab.tremend.com/${REPO_USER}/${REPO_NAME}.git"
+  GIT_URL="https://gitlab-ci-token:${GIT_TOKEN}@${REPO_HOSTNAME}/${REPO_USER}/${REPO_NAME}.git"
   if [[ ${USER_NAME} == "githubactions-bot" ]];then
     USER_NAME=${USER_NAME:-"gitlabci-bot"}
   fi
